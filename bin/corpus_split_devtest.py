@@ -141,7 +141,7 @@ def make_concordance(wrd_annot, phn_annot):
 def train_test_split(seq, cut):
     ranked_ixs = np.arange(len(seq))
     np.random.shuffle(ranked_ixs)
-    return seq[ranked_ixs[cut:]], seq[ranked_ixs[:cut]]
+    return seq[ranked_ixs[:cut]], seq[ranked_ixs[cut:]]
 
 
 def get_speakers():
@@ -174,14 +174,10 @@ def split_speakers(corpus_path, nspeakers):
     wrd_annot = {path.splitext(path.basename(fname))[0]:
                  read_wrd(fname)
                  for fname in glob.iglob(path.join(corpus_path, '*.wrd'))}
-    # phn_annot = {path.splitext(path.basename(fname))[0]:
-    #              read_phn(fname)
-    #              for fname in glob.iglob('/home/mwv/data/buckeye_modified_split/phn/*.phn')}
 
     words = set(fragment.mark.translate(string.maketrans('',''), string.punctuation)
                 for fragments in wrd_annot.itervalues() for fragment in fragments)
     ix2word = dict(enumerate(sorted(list(words))))
-    # word2ix = {v: k for k, v in ix2word.iteritems()}
 
     words_per_speaker = defaultdict(list)
     for key, fragments in wrd_annot.iteritems():

@@ -3,16 +3,16 @@ title = "DEV/TEST SPLIT CONFIGURATION"
 [speakers]
 
   [speakers.dev]
-  young_female = 2
-  young_male = 2
-  old_female = 2
-  old_male = 2
+  young_female = 1
+  young_male = 1
+  old_female = 0
+  old_male = 0
 
   [speakers.test]
-  young_female = 2
-  young_male = 2
-  old_female = 2
-  old_male = 2
+  young_female = 3
+  young_male = 3
+  old_female = 3
+  old_male = 3
 
 [mangle]
 scheme = false
