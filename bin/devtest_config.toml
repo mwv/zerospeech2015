@@ -1,0 +1,18 @@
+title = "DEV/TEST SPLIT CONFIGURATION"
+
+[speakers]
+
+  [speakers.dev]
+  young_female = 2
+  young_male = 2
+  old_female = 2
+  old_male = 2
+
+  [speakers.test]
+  young_female = 2
+  young_male = 2
+  old_female = 2
+  old_male = 2
+
+[mangle]
+scheme = false
