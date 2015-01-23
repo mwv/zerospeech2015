@@ -95,7 +95,7 @@ if __name__ == '__main__':
     for ix, npy_file in enumerate(files):
         print 'htk_posteriors {0}/{1}              \r'.format(ix+1, len(files)),
         bname = path.splitext(path.basename(npy_file))[0]
-        x = np.load(npy_file['features'])
+        x = np.load(npy_file)
         b = arr2bin(x, 100)
         with open(path.join(spro_dir, bname + '.spro'), 'wb') as fid:
             fid.write(b)
