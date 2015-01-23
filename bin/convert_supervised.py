@@ -54,34 +54,49 @@ if __name__ == '__main__':
     data_dir = path.join(base_dir, 'npz_sup7_train')
     np_dir = path.join(data_dir, 'npz')
     spro_dir = path.join(data_dir, 'spro')
+    if not path.exists(spro_dir):
+        os.makedirs(spro_dir)
 
-    for npz_file in glob.iglob(path.join(np_dir, '*.npz')):
+    files = glob.glob(path.join(np_dir, '*.npz'))
+    for ix, npz_file in enumerate(files):
+        print 'sup7 {0}/{1}          \r'.format(ix+1, len(files))
         bname = path.splitext(path.basename(npz_file))[0]
         x = np.load(npz_file)['features']
         b = arr2bin(x, 100)
         with open(path.join(spro_dir, bname + '.spro'), 'wb') as fid:
             fid.write(b)
+    print
 
     # 2. deep_cos_cos2
     data_dir = path.join(base_dir, 'deep_cos_cos2')
     np_dir = path.join(data_dir, 'npz')
     spro_dir = path.join(data_dir, 'spro')
+    if not path.exists(spro_dir):
+        os.makedirs(spro_dir)
 
-    for npz_file in glob.iglob(path.join(np_dir, '*.npz')):
+    files = glob.glob(path.join(np_dir, '*.npz'))
+    for ix, npz_file in enumerate(files):
+        print 'deep_cos_cos2 {0}/{1}          \r'.format(ix+1, len(files))
         bname = path.splitext(path.basename(npz_file))[0]
         x = np.load(npz_file)['features']
         b = arr2bin(x, 100)
         with open(path.join(spro_dir, bname + '.spro'), 'wb') as fid:
             fid.write(b)
+    print
 
     # 3. htk_posteriors
     data_dir = path.join(base_dir, 'htk_posteriors')
     np_dir = path.join(data_dir, 'npy')
     spro_dir = path.join(data_dir, 'spro')
+    if not path.exists(spro_dir):
+        os.makedirs(spro_dir)
 
-    for npy_file in glob.iglob(path.join(np_dir, '*.npy')):
+    files = glob.glob(path.join(np_dir, '*.npy'))
+    for ix, npy_file in enumerate(files):
+        print 'htk_posteriors {0}/{1}              \r'.format(ix+1, len(files))
         bname = path.splitext(path.basename(npy_file))[0]
         x = np.load(npy_file['features'])
         b = arr2bin(x, 100)
         with open(path.join(spro_dir, bname + '.spro'), 'wb') as fid:
             fid.write(b)
+    print
