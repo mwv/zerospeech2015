@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     files = glob.glob(path.join(np_dir, '*.npz'))
     for ix, npz_file in enumerate(files):
-        print 'sup7 {0}/{1}          \r'.format(ix+1, len(files))
+        print 'sup7 {0}/{1}          \r'.format(ix+1, len(files)),
         bname = path.splitext(path.basename(npz_file))[0]
         x = np.load(npz_file)['features']
         b = arr2bin(x, 100)
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
     files = glob.glob(path.join(np_dir, '*.npz'))
     for ix, npz_file in enumerate(files):
-        print 'deep_cos_cos2 {0}/{1}          \r'.format(ix+1, len(files))
+        print 'deep_cos_cos2 {0}/{1}          \r'.format(ix+1, len(files)),
         bname = path.splitext(path.basename(npz_file))[0]
         x = np.load(npz_file)['features']
         b = arr2bin(x, 100)
@@ -93,7 +93,7 @@ if __name__ == '__main__':
 
     files = glob.glob(path.join(np_dir, '*.npy'))
     for ix, npy_file in enumerate(files):
-        print 'htk_posteriors {0}/{1}              \r'.format(ix+1, len(files))
+        print 'htk_posteriors {0}/{1}              \r'.format(ix+1, len(files)),
         bname = path.splitext(path.basename(npy_file))[0]
         x = np.load(npy_file['features'])
         b = arr2bin(x, 100)
